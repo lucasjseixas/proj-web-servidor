@@ -12,15 +12,19 @@ function validatePassword(senha) {
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("senha");
+  const emailFeedback = document.getElementById("emailFeedback");
+  const senhaFeedback = document.getElementById("senhaFeedback");
 
   // Validação de e-mail oninput
   emailInput.addEventListener("input", function () {
     if (validateEmail(emailInput.value)) {
       emailInput.classList.remove("is-invalid");
       emailInput.classList.add("is-valid");
+      emailFeedback.style.display = "none";  // Esconde feedback
     } else {
       emailInput.classList.remove("is-valid");
       emailInput.classList.add("is-invalid");
+      emailFeedback.style.display = "block";  // Mostra feedback
     }
   });
 
@@ -29,9 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validatePassword(passwordInput.value)) {
       passwordInput.classList.remove("is-invalid");
       passwordInput.classList.add("is-valid");
+      senhaFeedback.style.display = "none";  // Esconde feedback
     } else {
       passwordInput.classList.remove("is-valid");
       passwordInput.classList.add("is-invalid");
+      senhaFeedback.style.display = "block";  // Mostra feedback
     }
   });
 
