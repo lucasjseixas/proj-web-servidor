@@ -1,12 +1,12 @@
 <?php
 
-include '../database/config.php';
+// include '../database/config.php';
 
-$sql = "SELECT * FROM usuarios WHERE id=" . $_REQUEST["id"];
-$res = $conn->query($sql);
-$row = $res->fetch_object();
+// $sql = "SELECT * FROM usuarios WHERE id=" . $_REQUEST["id"];
+// $res = $conn->query($sql);
+// $row = $res->fetch_object();
 
-$conn->close();
+// $conn->close();
 
 ?>
 <!DOCTYPE html>
@@ -24,27 +24,28 @@ $conn->close();
 <body class="d-flex flex-column min-vh-100  ">
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">Home</a>
+      <a class="nav-link active" href="../../src/index.php" aria-selected="true" role="tab">Home</a>
     </li>
   </ul>
-  <div class="container text-center flex-grow-1">
+  <div class="container text-center">
     <h1 class="text-primary-emphasis">PERFIL</h1>
     <form id="emailForm" action="index.php" method="POST">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <label for="email" class="form-label">Endereço de E-mail</label>
-          <input type="email" name="email" class="form-control" id="email" value="<?php print $row->id; ?>">
+          <label for="email" class="form-label text-start w-100">Endereço de E-mail</label>
+          <div class="d-flex align-items-center">
+            <input type="email" name="email" class="form-control me-2" id="email" disabled>
+            <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button type="submit" class="btn btn-danger btn-sm">EXCLUIR
+              <i class="bi bi-trash-fill"></i>
+            </button>
+          </div>
         </div>
       </div>
-      <div class="container">
-        <button type="submit" class="btn btn-warning">EDITAR
-          <i class="bi bi-pencil"></i>
-        </button>
-        <button type="submit" class="btn btn-danger">EXCLUIR
-          <i class="bi bi-trash-fill"></i>
-        </button>
-      </div>
     </form>
+
   </div>
   <footer class="py-3 mt-auto">
     <div class="progress" style="height:5px">

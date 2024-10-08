@@ -45,7 +45,7 @@ $conn->close();
             <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">Home</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" data-bs-toggle="tab" href="#profile" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
+            <a class="nav-link" href="./views/perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
         </li>
     </ul>
     <div class="container text-center flex-grow-1">
