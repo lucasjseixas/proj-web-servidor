@@ -1,26 +1,8 @@
 <?php
 
-include './validator/validation.php';
-
-
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $email = $_POST['email'];
-
-//     // Verifica se a checkbox "Lembrar-me" foi marcada
-//     if (isset($_POST['lembreme'])) {
-//         // Define um cookie com o email do usuário que dura 30 dias
-//         setcookie('email_usuario', $email, time() + (30 * 24 * 60 * 60), "/");
-//     } else {
-//         // Se a checkbox não estiver marcada, o cookie é removido
-//         if (isset($_COOKIE['user_email'])) {
-//             setcookie('email_usuario', '', time() - 3600, "/");
-//         }
-//     }
-// }
-// // Se o cookie existir, preencha automaticamente o campo de email
-// $emailSalvo = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : '';
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,23 +10,23 @@ include './validator/validation.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <title>Projeto Web - Servidor - Home</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <title>Projeto Web - Servidor - Registrar</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item" role="presentation">
-            <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">Home</a>
+            <a class="nav-link active" href="../index.php" aria-selected="true" role="tab">Home</a>
         </li>
         <li class="nav-item" role="presentation">
-            <a class="nav-link" href="./views/perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
+            <a class="nav-link" href="./perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
         </li>
     </ul>
     <div class="container text-center flex-grow-1">
-        <h1 class="text-primary-emphasis">LOGIN</h1>
-        <form id="emailForm" action="index.php" method="POST">
+        <h1 class="text-primary-emphasis">REGISTRAR</h1>
+        <form id="emailForm" action="../validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <label for="email" class="form-label">Endereço de E-mail</label>
@@ -67,17 +49,17 @@ include './validator/validation.php';
                     para diversos valores diferentes em caso de uso de checkbox do usuario 
                 -->
             </div>
-            <input name="lembreme" class="form-check-input mt-1" type="checkbox" value="1" id="flexCheckDefault">
+            <!-- <input name="lembreme" class="form-check-input mt-1" type="checkbox" value="1" id="flexCheckDefault">
             <label class="form-check-label" for="flexCheckDefault"> Lembrar-me
-            </label>
-            <div class="mt-2">
+            </label> -->
+            <!-- <div class="mt-2">
                 <span>
-                    <p>Ainda não tem login? <a href="./views/registrar.php" class="text-secondary">REGISTRE-SE</a></p>
+                    <p>Ainda não tem login? <a href="#" class="text-secondary">REGISTRE-SE</a></p>
                 </span>
-            </div>
+            </div> -->
             <div class=" row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <button type="submit" class="btn btn-primary w-100 mt-2">Login</button>
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Registrar</button>
                 </div>
             </div>
             <div class=" row justify-content-center">

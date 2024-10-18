@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validateEmail(emailInput.value)) {
       emailInput.classList.remove("is-invalid");
       emailInput.classList.add("is-valid");
-      emailFeedback.style.display = "none";  // Esconde feedback
+      emailFeedback.style.display = "none"; // Esconde feedback
     } else {
       emailInput.classList.remove("is-valid");
       emailInput.classList.add("is-invalid");
@@ -55,4 +55,39 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("A senha deve conter pelo menos 3 números.");
       }
     });
+
 });
+
+  //   // Validação no submit do formulário
+  // document
+  // .getElementById("emailForm")
+  // .addEventListener("submit", function (event) {
+  //   let valid = true;
+
+  //   // Verifica se o campo de e-mail está vazio ou inválido
+  //   if (emailInput.value === "") {
+  //     emailInput.classList.add("is-invalid");
+  //     emailFeedback.style.display = "block";
+  //     valid = false;
+  //   } else if (!validateEmail(emailInput.value)) {
+  //     emailInput.classList.add("is-invalid");
+  //     emailFeedback.style.display = "block";
+  //     valid = false;
+  //   }
+
+  //   // Verifica se o campo de senha está vazio ou inválido
+  //   if (passwordInput.value === "") {
+  //     passwordInput.classList.add("is-invalid");
+  //     senhaFeedback.style.display = "block";
+  //     valid = false;
+  //   } else if (!validatePassword(passwordInput.value)) {
+  //     passwordInput.classList.add("is-invalid");
+  //     senhaFeedback.style.display = "block";
+  //     valid = false;
+  //   }
+
+  //   // Se não for válido, previne o envio do formulário
+  //   if (!valid) {
+  //     event.preventDefault();
+  //   }
+  // });
