@@ -45,7 +45,7 @@ if (isset($_POST["textArea"])) {
 //  Para apagar o arquivo, usar UNLINK (delete)
 //  File_exists checa se o arquivo existe
 //  Botao de excluir precisa der <a></a> e no href="localhost?File='nome_do_arquivo'"
-//  $_GET['File]
+//  $_GET['File']
 //  Clicar em link = $_GET
 
 // Editar é usar o <a href='localhost?'></a>
