@@ -55,14 +55,6 @@ function gerarTabelaArquivos()
     }
   }
 
-  //   <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
-  //   <i class="bi bi-pencil"></i>
-  // </button>
-  // <button type="submit" class="btn btn-danger btn-sm me-2">EXCLUIR
-  //   <i class="bi bi-trash-fill"></i>
-  // </button>
-
-
   $tabela .= "</tbody></table></div></div>";
 
   // Fecha o diretório
