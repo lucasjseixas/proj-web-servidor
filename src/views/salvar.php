@@ -28,6 +28,9 @@ if (isset($_POST["textArea"])) {
     fwrite($file, $ccs);
     fwrite($file, PHP_EOL);
 
+    /* Flusha a stream de output */
+    fflush($file);
+
     /**
      * Fecha o arquivo
      */
@@ -47,6 +50,7 @@ if (isset($_POST["textArea"])) {
 //  Botao de excluir precisa der <a></a> e no href="localhost?File='nome_do_arquivo'"
 //  $_GET['File']
 //  Clicar em link = $_GET
+// FEITO - 18/10/24
 
 // Editar é usar o <a href='localhost?'></a>
 // TinyMCE

@@ -50,7 +50,7 @@ function gerarTabelaArquivos()
       $tabela .= "<td><a href='" . $relativePath . "'>" . $arquivo . "</a></td>";
       $tabela .= "<td>" . $fileModificationTime . "</td>";
       $tabela .= "<td>" . number_format($fileSize / 1024, 2) . " KB</td>";  // Tamanho em KB com 2 casas decimais
-      $tabela .= "<td><a href='" . $relativePath . "' class='btn btn-warning btn-sm me-2'>EDITAR<i class='bi bi-pencil'></i></a><a href='remover.php?op=delete&filename=" . $arquivo . "' class='btn btn-danger btn-sm'>EXCLUIR<i class='bi bi-trash-fill'></td>";
+      $tabela .= "<td><a href='editar.php?op=edit&filename=" . $arquivo . "' class='btn btn-warning btn-sm me-2'>EDITAR<i class='bi bi-pencil'></i></a><a href='remover.php?op=delete&filename=" . $arquivo . "' class='btn btn-danger btn-sm'>EXCLUIR<i class='bi bi-trash-fill'></td>";
       $tabela .= "</tr>";
     }
   }
