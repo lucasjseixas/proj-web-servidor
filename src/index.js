@@ -1,14 +1,17 @@
+// Função para validação do email através de RegEx simples de email. Precisa apenas conter um @
 function validateEmail(email) {
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return emailPattern.test(email);
 }
 
+// Função para validação da senha através de RegEx simples de senha. Necessidade de conter 3 números pelo menos
 function validatePassword(senha) {
   const numberPattern = /\d/g;
   const numbers = senha.match(numberPattern);
   return numbers && numbers.length >= 3;
 }
 
+// Após carregamento do DOM da página
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("senha");
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Validação de senha oninput
+  // Validação de senha OnInput
   passwordInput.addEventListener("input", function () {
     if (validatePassword(passwordInput.value)) {
       passwordInput.classList.remove("is-invalid");

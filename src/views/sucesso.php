@@ -1,7 +1,7 @@
 <?php
 
 // salva o path para o diretório do arquivo
-$path = "E:/xampp/htdocs/web-serv/src/views/";
+$path = "C:/xampp/htdocs/web-serv/src/views/";
 $diretorio = dir($path);
 
 // Realiza a renderização do HTML para a tabela

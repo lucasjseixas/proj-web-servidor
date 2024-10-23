@@ -1,4 +1,7 @@
 <?php
+
+// include_once '../validator/autenticacao.php';
+
 // Retoma a session iniciada em validation
 session_start();
 
@@ -25,7 +28,7 @@ if (isset($_SESSION['email'])) {
 function gerarTabelaArquivos()
 {
   // Define o caminho do diretório de arquivos
-  $path = "E:/xampp/htdocs/web-serv/src/views/";
+  $path = "C:/xampp/htdocs/web-serv/src/views/";
   $diretorio = dir($path);
 
   // Inicia a criação da tabela
@@ -90,7 +93,7 @@ function gerarTabelaArquivos()
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <label for="email" class="form-label text-start w-100">Endereço de E-mail</label>
           <div class="d-flex align-items-center">
-            <input type="email" name="email" class="form-control me-2" id="email" value="<?php print $userEmail; ?>" readonly>
+            <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo $userEmail; ?>" readonly>
             <!-- Printa no campo input o email recebido pela query no DB -->
             <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
               <i class="bi bi-pencil"></i>
@@ -102,7 +105,7 @@ function gerarTabelaArquivos()
         </div>
       </div>
     </form>
-    <h1 class="text-center text-primary">Serviços Oferecidos</h1>
+    <h2 class="text-center text-primary mt-3">Serviços Oferecidos</h2>
     <div class="d-flex justify-content-center flex-wrap">
       <a href="./arquivo.php" class="btn btn-info btn-lg me-2 mt-2" style="height: 100px; width: auto; max-width: 300px; display: flex; justify-content: center; align-items: center; text-align: center;">DOCUMENT
         <i class=" bi bi-filetype-doc"></i>
@@ -114,6 +117,14 @@ function gerarTabelaArquivos()
         <i class="bi bi-filetype-ppt"></i>
       </a>
     </div>
+    <form id="uploadForm" method="POST" action="upload.php" enctype="multipart/form-data">
+      <div class="container" style="max-width:600px">
+        <!-- <label for="formFile" class="form-label mt-4">Upload de arquivos</label> -->
+        <h3 class="text-center text-primary mt-3">Upload de Arquivos</h3>
+        <input name="uploadFile" class="form-control" type="file" id="formFile">
+        <button type="submit" class="btn btn-secondary mt-3">Enviar Arquivo</button>
+      </div>
+    </form>
 
     <!-- Chama a função PHP para gerar a tabela e exibi-la -->
     <?php echo gerarTabelaArquivos(); ?>

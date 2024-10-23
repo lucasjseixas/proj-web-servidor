@@ -5,12 +5,22 @@ session_start();
 include './database/config.php';
 
 
-// Para nao haver duplicidade na entrada de dados para o db
+// Para nao haver duplicidade na entrada de dados para o DB em caso de 'refresh' da página
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
+    // Checa se o usuário já existe no DB
+    $sql = "SELECT * FROM `usuarios` WHERE email='$email' AND senha='$senha'";
+    $res = $conn->query($sql);
+    if ($res->num_rows > 0) {
+        echo "Usuário já cadastrado";
+    } else {
+        header("Location: ./registrar.php");
+    }
+
+    // Insere o novo usuário no DB
     $sql = "INSERT INTO `usuarios` (email, senha) VALUES ('{$email}','{$senha}')";
     // res true or false
     $res = $conn->query($sql);

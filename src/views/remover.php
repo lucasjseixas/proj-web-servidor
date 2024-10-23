@@ -11,10 +11,10 @@ if (isset($_GET['op']) && $_GET['op'] == 'delete' && isset($_GET['filename'])) {
         if (file_exists($filename)) {
             removeFile($filename);
         } else {
-            echo "Arquivo não encontrado";
+            echo "Arquivo não encontrado para remoção";
         }
     } else {
-        echo "Operação não permitida. Apenas arquivos .txt podem ser deletados";
+        echo "Operação não permitida. Apenas arquivos .txt podem ser EXCLUÍDOS";
     }
 }
 

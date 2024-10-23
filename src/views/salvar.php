@@ -1,13 +1,13 @@
 <?php
 
-$filename = $_POST['docName'] . ".txt";
-
 /*
  * Verifica se o conteúdo da textarea name=`textArea` foi enviado
  * Essa condição irá evitar erros
  */
 
-if (isset($_POST["textArea"])) {
+if (isset($_POST["textArea"]) && isset($_POST['docName'])) {
+
+    $docName = $_POST['docName'];
 
     /* Captura o conteúdo enviado */
     $ccs = $_POST["textArea"];
@@ -19,6 +19,13 @@ if (isset($_POST["textArea"])) {
      * para o modo de escrita, além de colocar
      * o ponteiro no final do arquivo.
      */
+
+    if (pathinfo($docName, PATHINFO_EXTENSION) !== 'txt') {
+        $filename = $docName . ".txt";
+    } else {
+        $filename = $docName; // Se já tem .txt, somente usa o nome do arquivo
+    }
+
     $file = fopen($filename, "w");
 
     /*
@@ -40,6 +47,8 @@ if (isset($_POST["textArea"])) {
      * Volta para a página index.html
      */
     header("Location: ./perfil.php");
+
+    exit;
 }
 
 /* TODO baseado na aula de 17/10/24 */
@@ -51,6 +60,7 @@ if (isset($_POST["textArea"])) {
 //  $_GET['File']
 //  Clicar em link = $_GET
 // FEITO - 18/10/24
+
 
 // Editar é usar o <a href='localhost?'></a>
 // TinyMCE
