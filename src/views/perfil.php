@@ -117,12 +117,12 @@ function gerarTabelaArquivos()
         <i class="bi bi-filetype-ppt"></i>
       </a>
     </div>
-    <form id="uploadForm" method="POST" action="upload.php" enctype="multipart/form-data">
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
       <div class="container" style="max-width:600px">
         <!-- <label for="formFile" class="form-label mt-4">Upload de arquivos</label> -->
         <h3 class="text-center text-primary mt-3">Upload de Arquivos</h3>
-        <input name="uploadFile" class="form-control" type="file" id="formFile">
-        <button type="submit" class="btn btn-secondary mt-3">Enviar Arquivo</button>
+        <input name="uploadFile" class="form-control" type="file">
+        <input type="submit" class="btn btn-secondary mt-3" value="Upload">
       </div>
     </form>
 

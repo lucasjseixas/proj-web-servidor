@@ -49,7 +49,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
         <div>
             <div>
                 <label for="docName" class="form-label mt-4">Nome do documento</label>
-                <input type=" text" class="form-control" name="docName" id=" docName" placeholder="Nome do documento" value="<?php echo isset($filename) ? htmlspecialchars($filename) : ''; ?>" <?php echo $isEditing ? 'readonly' : ''; ?>" required>
+                <input type=" text" class="form-control" name="docName" placeholder="Nome do documento" value="<?php echo isset($filename) ? htmlspecialchars($filename) : ''; ?>" <?php echo $isEditing ? 'readonly' : ''; ?>" required>
             </div>
             <label for="textArea" class="form-label mt-4">Documento</label>
             <textarea class="form-control" name="textArea" id="textArea" rows="15" placeholder="Digite seu texto aqui" type="text" value="<?php echo htmlspecialchars($content); ?>"></textarea>
