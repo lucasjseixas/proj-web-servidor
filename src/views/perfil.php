@@ -123,6 +123,7 @@ function gerarTabelaArquivos()
         <h3 class="text-center text-primary mt-3">Upload de Arquivos</h3>
         <input name="uploadFile" class="form-control" type="file">
         <input type="submit" class="btn btn-secondary mt-3" value="Upload">
+        <!-- <p class="text-center text-danger">Somente serão aceitos arquivos do tipo '.txt'</p> -->
       </div>
     </form>
 

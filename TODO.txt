@@ -1,0 +1,45 @@
+
+<--- TODO LIST --->
+
+! Implementação pessoal: Corrigir a parte de autenticação com o DB
+! Adicionar o TinyMCE no AreaText
+! Corrigir o padrão de cores do sistema
+! Adicionar JS nos envios, erros e sucessos
+
+/* TODO do dia 23/10/2024 */
+
+// Implementação do Upload sem muitas restrições em 24/10/2024
+// Futuramente adicionar if statements para bloquear outros tipos de arquivos, ou seja, deixar somente arquivos do tipo .txt
+
+// Detalhe de implementação de upload
+// $_FILES é um array
+// enctype="multipart/form-data" -> necessário
+// <Form></Form> -> Somente em metodo POST
+// Envio de diversos arquivos: inputfile no html -> no atributo name="arquivo[]" // Também necessita atribuição de diversos arquivos
+// Também tem as posições no array
+// Também necessita utilizar foreach, while, for, qualquer um tipo desses para passar pelos arquivos
+// Função move_uploaded_file, pega o arquivo da superglobal $_FILES (tmp_name, e deixa salvo em algum lugar com um nome tmp também)
+// move_uploaded_file retorna true or false
+// Deixar dentro de um 'if statement', ou seja, fazer tratamento dos dados
+
+/* TODO baseado na aula de 17/10/24 */
+
+//  Isso para apagar os arquivos
+//  Para apagar o arquivo, usar UNLINK (delete)
+//  File_exists checa se o arquivo existe
+//  Botao de excluir precisa der <a></a> e no href="localhost?File='nome_do_arquivo'"
+//  $_GET['File']
+//  Clicar em link = $_GET
+// FEITO - 18/10/24
+
+
+// Editar é usar o <a href='localhost?'></a>
+// TinyMCE
+// localhost/editar.php?file=_____&op=_____
+// <? if( ) :? rightarrow
+
+// <? endif; ? rightarrow
+// <?php echo 'lalala ====> <?=  é equivalente a echo
+// file_get_contents
+// <textarea><?=$conteudo?
+
