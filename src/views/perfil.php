@@ -1,7 +1,6 @@
 <?php
 
 // include_once '../validator/autenticacao.php';
-
 // Retoma a session iniciada em validation
 session_start();
 
@@ -49,7 +48,7 @@ function gerarTabelaArquivos()
       $fileSize = filesize($filePath);  // Tamanho do arquivo em bytes
 
       // Adiciona a linha à tabela
-      $tabela .= "<tr class='table-primary'>";
+      $tabela .= "<tr class='table-dark'>";
       $tabela .= "<td><a href='" . $relativePath . "'>" . $arquivo . "</a></td>";
       $tabela .= "<td>" . $fileModificationTime . "</td>";
       $tabela .= "<td>" . number_format($fileSize / 1024, 2) . " KB</td>";  // Tamanho em KB com 2 casas decimais
@@ -122,7 +121,7 @@ function gerarTabelaArquivos()
         <!-- <label for="formFile" class="form-label mt-4">Upload de arquivos</label> -->
         <h3 class="text-center text-primary mt-3">Upload de Arquivos</h3>
         <input name="uploadFile" class="form-control" type="file">
-        <input type="submit" class="btn btn-secondary mt-3" value="Upload">
+        <input type="submit" class="btn btn-info mt-3" value="Upload">
         <!-- <p class="text-center text-danger">Somente serão aceitos arquivos do tipo '.txt'</p> -->
       </div>
     </form>

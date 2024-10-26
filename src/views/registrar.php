@@ -1,5 +1,7 @@
 <?php
 
+include './inserir.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -23,7 +25,7 @@
     </ul>
     <div class="container text-center flex-grow-1">
         <h1 class="text-primary-emphasis">REGISTRAR</h1>
-        <form id="emailForm" action="../validator/validation.php" method="POST">
+        <form id="emailForm" action="./inserir.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <label for="email" class="form-label">Endereço de E-mail</label>
@@ -90,7 +92,7 @@
         </div>
         <p class="text-center text-muted mt-3">© 2024 - L.J.A.S.</p>
     </footer>
-    <script src="index.js"></script>
+    <script src="registrar.js"></script>
 </body>
 
 </html>

@@ -6,6 +6,20 @@
 ! Corrigir o padrão de cores do sistema
 ! Adicionar JS nos envios, erros e sucessos
 
+
+/* TODO do dia 24/10/2024 */
+
+// Adição de um DB (Já implementado)
+// Ver se precisa ser um PDO
+// Refazer as rotas de cadastro e autenticacao, o index está cmo problemas e pede para conectar ao banco de dados logo de cara, o que nao faz sentido, preciso achar uam maneira de como evitar que o php peça a entrada
+// mysqli_affected_rows INSERT UPDATE DELETE é usada para saber quantas linhas foram afetadas
+// mysqli_num_rows é para SELECT
+// if para essas statements, para ver se alguma coisa deu errado
+// Procedimentos de segurança: fazer hash no password ou md5(?), preferencia para o SHA.256 SHA.512
+// Começar a utilizar htmlspecialchars para tratamento de email e senha
+// filter_var para fazer sanitização completo (ela retira a tag html do input e fica somente a parte importante do texto)
+// filter_input tambem realiza sanitização (escolher entre as 2 funções)
+
 /* TODO do dia 23/10/2024 */
 
 // Implementação do Upload sem muitas restrições em 24/10/2024
