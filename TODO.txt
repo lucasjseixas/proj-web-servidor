@@ -6,7 +6,6 @@
 ! Corrigir o padrão de cores do sistema
 ! Adicionar JS nos envios, erros e sucessos
 
-
 /* TODO do dia 24/10/2024 */
 
 // Adição de um DB (Já implementado)

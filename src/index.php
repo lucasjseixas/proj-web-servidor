@@ -68,17 +68,26 @@ session_start();
         <form id="emailForm" action="./validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <!-- <label for="email" class="form-label">Endereço de E-mail</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Digite seu e-mail" autocomplete="false" required> -->
                     <label for="email" class="form-label">Endereço de E-mail</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Digite seu e-mail" autocomplete="false" required>
+                    <div class="form-floating mb-3">
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Digite seu e-mail" autocomplete="false" required>
+                        <label for="floatingInput">E-mail</label>
+                    </div>
                     <div id="emailFeedback" class="invalid-feedback" style="display: none;">
                         Por favor, insira um e-mail válido.
                     </div>
                 </div>
+
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <label for="senha" class="form-label">Senha</label>
-                    <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                    <div class="form-floating mb-3">
+                        <input type="password" name="senha" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                        <label for="floatingInput">Senha</label>
+                    </div>
                     <div id="senhaFeedback" class="invalid-feedback" style="display: none;">
                         A senha deve conter pelo menos 3 números.
                     </div>
@@ -111,17 +120,17 @@ session_start();
 
     <!-- Necessidade de criar a lógica após a validação do usuário ou cadastro do usuário -->
 
-    <div class="alert alert-dismissible alert-success text-center" style="display:none;">
+    <div id="cadastroSucesso" class="alert alert-dismissible alert-success text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Oba! Usuário CADASTRADO com sucesso!</strong> <a href="#" class="alert-link"></a>.
     </div>
 
-    <div class="alert alert-dismissible alert-success text-center" style="display:none;">
+    <div id="loginSucesso" class="alert alert-dismissible alert-success text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Opa! Usuário LOGADO com sucesso!</strong> <a href="#" class="alert-link"></a>.
     </div>
 
-    <div class="alert alert-dismissible alert-danger text-center" style="display:none;">
+    <div id="erro" class="alert alert-dismissible alert-danger text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Epa! Usuário NÃO encontrado ou não cadastrado</strong> <a href="#" class="alert-link">
     </div>

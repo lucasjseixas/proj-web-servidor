@@ -4,11 +4,10 @@ function validateEmail(email) {
   return emailPattern.test(email);
 }
 
-// Função para validação da senha através de RegEx simples de senha. Necessidade de conter 3 números pelo menos
+// Função para validação da senha, exigindo exatamente 3 caracteres que sejam letras ou números
 function validatePassword(senha) {
-  const numberPattern = /\d/g;
-  const numbers = senha.match(numberPattern);
-  return numbers && numbers.length >= 3;
+  const charPattern = /^[a-zA-Z0-9]{3}$/; // regex para exatamente 3 letras ou números
+  return charPattern.test(senha);
 }
 
 // Após carregamento do DOM da página
@@ -55,42 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!validatePassword(passwordInput.value)) {
         event.preventDefault();
-        alert("A senha deve conter pelo menos 3 números.");
+        alert("A senha deve conter pelo menos 3 caracteres.");
       }
     });
-
 });
-
-  //   // Validação no submit do formulário
-  // document
-  // .getElementById("emailForm")
-  // .addEventListener("submit", function (event) {
-  //   let valid = true;
-
-  //   // Verifica se o campo de e-mail está vazio ou inválido
-  //   if (emailInput.value === "") {
-  //     emailInput.classList.add("is-invalid");
-  //     emailFeedback.style.display = "block";
-  //     valid = false;
-  //   } else if (!validateEmail(emailInput.value)) {
-  //     emailInput.classList.add("is-invalid");
-  //     emailFeedback.style.display = "block";
-  //     valid = false;
-  //   }
-
-  //   // Verifica se o campo de senha está vazio ou inválido
-  //   if (passwordInput.value === "") {
-  //     passwordInput.classList.add("is-invalid");
-  //     senhaFeedback.style.display = "block";
-  //     valid = false;
-  //   } else if (!validatePassword(passwordInput.value)) {
-  //     passwordInput.classList.add("is-invalid");
-  //     senhaFeedback.style.display = "block";
-  //     valid = false;
-  //   }
-
-  //   // Se não for válido, previne o envio do formulário
-  //   if (!valid) {
-  //     event.preventDefault();
-  //   }
-  // });
