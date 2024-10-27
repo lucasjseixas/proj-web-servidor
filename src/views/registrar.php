@@ -1,5 +1,4 @@
 <?php
-include '../validator/sessao.php';
 include '../validator/validation.php';
 
 ?>
@@ -30,9 +29,14 @@ include '../validator/validation.php';
                         </a>
                     </li>
                 </ul>
-                <form name="logout" class="d-flex">
+                <?php if (isset($_SESSION['email'])): ?>
+                    <form name="logout" action="./validator/logout.php" method="POST" class="d-flex">
+                        <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
+                <?php endif; ?>
+                <!-- <form name="logout" class="d-flex">
                     <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
-                </form>
+                </form> -->
             </div>
         </div>
     </nav>

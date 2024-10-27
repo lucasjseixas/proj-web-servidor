@@ -93,7 +93,7 @@ function gerarTabelaArquivos()
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="./views/perfil.php">Perfil
+            <a class="nav-link active" href="perfil.php">Perfil
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
@@ -114,14 +114,16 @@ function gerarTabelaArquivos()
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <label for="email" class="form-label text-start w-100">Endereço de E-mail</label>
           <div class="d-flex align-items-center">
-            <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>
             <!-- Printa no campo input o email recebido pela query no DB -->
-            <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
+            <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>
+            <!-- <a href='/web-serv/src/actions/edit_perfil.php?op=edit' class='btn btn-warning btn-sm me-2'>Editar Email<i class='bi bi-pencil'></i></a> -->
+            <a href='/web-serv/src/actions/delete_perfil.php?op=delete' class='btn btn-danger btn-sm me-2'>Deletar Conta<i class='bi bi-trash-fill'></i></a>
+            <!-- <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
               <i class="bi bi-pencil"></i>
-            </button>
-            <button type="submit" class="btn btn-danger btn-sm me-2">EXCLUIR
+            </button> -->
+            <!-- <button type="submit" class="btn btn-danger btn-sm me-2">EXCLUIR
               <i class="bi bi-trash-fill"></i>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>

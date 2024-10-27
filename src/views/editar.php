@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-
+// Inicia checagem da sessao
+include '../validator/sessao.php';
 include './salvar.php';
 
 $content = ""; // Inicializa como vazio

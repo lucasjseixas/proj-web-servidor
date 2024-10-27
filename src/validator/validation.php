@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Retorno de rows com o equivalente ao usuario/senha
         if ($res->num_rows > 0) {
 
-            // Inicia a session
+            // Inicia a session e seta o email da $_SESSION 
             if (!isset($_SESSION)) {
                 session_start();
                 $_SESSION['email'] = $email;
@@ -97,8 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Sucesso de inserção
             if ($res === TRUE) {
+                session_start();
                 $_SESSION['email'] = $email;
-                header("Location: /web-serv/src/views/perfil.php?success=true");
+                header("Location: /web-serv/src/views/perfil.php");
                 exit;
             } else {
                 $error_message = "Erro ao registrar. Tente novamente.";

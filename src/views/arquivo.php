@@ -38,14 +38,26 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
 </head>
 
 <body>
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" href="../index.php" aria-selected="true" role="tab">Home</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="./perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
-        </li>
-    </ul>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../../src/index.php">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="perfil.php">Perfil
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <form name="logout" action="/web-serv/src/validator/logout.php" method="POST" class="d-flex">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <form id="formDocument" action="salvar.php" method="POST">
         <div>
             <div>
@@ -55,7 +67,9 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
             <label for="textArea" class="form-label mt-4">Documento</label>
             <textarea class="form-control" name="textArea" id="textArea" rows="15" placeholder="Digite seu texto aqui" type="text" value="<?php echo htmlspecialchars($content); ?>"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-lg mt-3">Salvar </button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg mt-3 justify-content-center">Salvar </button>
+        </div>
     </form>
     <footer class="py-3 mt-auto">
         <div class="progress" style="height:5px">
