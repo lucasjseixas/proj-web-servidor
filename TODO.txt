@@ -11,7 +11,7 @@
 
 // Adição de um DB (Já implementado)
 // Ver se precisa ser um PDO
-// Refazer as rotas de cadastro e autenticacao, o index está cmo problemas e pede para conectar ao banco de dados logo de cara, o que nao faz sentido, preciso achar uam maneira de como evitar que o php peça a entrada
+// Refazer as rotas de cadastro e autenticacao, o index está com problemas e pede para conectar ao banco de dados logo de cara, o que nao faz sentido, preciso achar uam maneira de como evitar que o php peça a entrada
 // mysqli_affected_rows INSERT UPDATE DELETE é usada para saber quantas linhas foram afetadas
 // mysqli_num_rows é para SELECT
 // if para essas statements, para ver se alguma coisa deu errado

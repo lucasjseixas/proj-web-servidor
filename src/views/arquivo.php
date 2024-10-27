@@ -1,4 +1,5 @@
 <?php
+include '../validator/sessao.php';
 include "./salvar.php";
 
 $conteudo = ""; // Inicializa como vazio

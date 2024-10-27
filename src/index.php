@@ -1,6 +1,8 @@
 <?php
 
-include './validator/validation.php';
+// include './validator/sessao.php';
+
+// include './validator/validation.php';
 
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //     $email = $_POST['email'];
@@ -19,6 +21,9 @@ include './validator/validation.php';
 // // Se o cookie existir, preencha automaticamente o campo de email
 // $emailSalvo = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : '';
 
+// Inicia sessão
+session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,17 +38,34 @@ include './validator/validation.php';
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" data-bs-toggle="tab" href="#home" aria-selected="true" role="tab">Home</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="./views/perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
-        </li>
-    </ul>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./views/perfil.php">Perfil
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <?php if (isset($_SESSION['email'])): ?>
+                    <form name="logout" action="./validator/logout.php" method="POST" class="d-flex">
+                        <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
+                <?php endif; ?>
+                <!-- <form name="logout" action="./validator/logout.php" method="POST" class="d-flex">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+                </form> -->
+            </div>
+        </div>
+    </nav>
     <div class="container text-center flex-grow-1">
         <h1 class="text-primary-emphasis">LOGIN</h1>
-        <form id="emailForm" action="index.php" method="POST">
+        <form id="emailForm" action="./validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <label for="email" class="form-label">Endereço de E-mail</label>
@@ -76,7 +98,7 @@ include './validator/validation.php';
             </div>
             <div class=" row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <button type="submit" class="btn btn-primary w-100 mt-2">Login</button>
+                    <button name="login" type="submit" class="btn btn-primary w-100 mt-2">Login</button>
                 </div>
             </div>
             <div class=" row justify-content-center">

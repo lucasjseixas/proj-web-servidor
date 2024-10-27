@@ -1,8 +1,9 @@
 <?php
-
-include './inserir.php';
+include '../validator/sessao.php';
+include '../validator/validation.php';
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,17 +16,29 @@ include './inserir.php';
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" href="../index.php" aria-selected="true" role="tab">Home</a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" href="./perfil.php" aria-selected="false" tabindex="-1" role="tab">Perfil</a>
-        </li>
-    </ul>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/web-serv/src/index.php">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./views/perfil.php">Perfil
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <form name="logout" class="d-flex">
+                    <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </nav>
     <div class="container text-center flex-grow-1">
         <h1 class="text-primary-emphasis">REGISTRAR</h1>
-        <form id="emailForm" action="./inserir.php" method="POST">
+        <form id="emailForm" action="../validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <label for="email" class="form-label">Endereço de E-mail</label>
@@ -58,7 +71,7 @@ include './inserir.php';
             </div> -->
             <div class=" row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <button type="submit" class="btn btn-primary w-100 mt-2">Registrar</button>
+                    <button name="registrar" type="submit" class="btn btn-primary w-100 mt-2">Registrar</button>
                 </div>
             </div>
             <div class=" row justify-content-center">

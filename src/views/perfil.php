@@ -1,27 +1,31 @@
 <?php
 
 // include_once '../validator/autenticacao.php';
-// Retoma a session iniciada em validation
-session_start();
-
 // Include de conexão com o DB
-include '../database/config.php';
+// include '../database/config.php';
 
-// Checa se existe a session iniciada e salva
-if (isset($_SESSION['email'])) {
-  $email = $_SESSION['email'];
+// // Checa se existe a session iniciada e salva
+// if (isset($_SESSION['email'])) {
+//   $email = $_SESSION['email'];
 
-  // Query no DB para o email enviado
-  $sql = "SELECT * FROM usuarios WHERE email='$email'";
-  $res = $conn->query($sql);
+//   // Query no DB para o email enviado
+//   $sql = "SELECT * FROM usuarios WHERE email='$email'";
+//   $res = $conn->query($sql);
 
-  if ($res->num_rows > 0) {
-    $row = $res->fetch_object();
-    $userEmail = $row->email;
-  } else {
-    $userEmail = '';
-  }
-}
+//   if ($res->num_rows > 0) {
+//     $row = $res->fetch_object();
+//     $userEmail = $row->email;
+//   } else {
+//     $userEmail = '';
+//   }
+// }
+
+// if (isset($_SESSION['email'])) {
+//   $userEmail = $_SESSION['email'];
+// }
+
+// Retoma a session iniciada em validation
+include '../validator/sessao.php';
 
 // Função para gerar a tabela
 function gerarTabelaArquivos()
@@ -80,11 +84,29 @@ function gerarTabelaArquivos()
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" href="../../src/index.php" aria-selected="true" role="tab">Home</a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../src/index.php">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="./views/perfil.php">Perfil
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+        </ul>
+        <form name="logout" action="/web-serv/src/validator/logout.php" method="POST" class="d-flex">
+          <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+        </form>
+        <!-- <form name="logout" class="d-flex">
+          <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+        </form> -->
+      </div>
+    </div>
+  </nav>
   <div class="container text-center">
     <h1 class="text-primary-emphasis">PERFIL</h1>
     <form id="emailForm" action="perfil.php" method="POST">
@@ -92,7 +114,7 @@ function gerarTabelaArquivos()
         <div class="col-12 col-md-6 col-lg-4 mb-3">
           <label for="email" class="form-label text-start w-100">Endereço de E-mail</label>
           <div class="d-flex align-items-center">
-            <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo $userEmail; ?>" readonly>
+            <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>
             <!-- Printa no campo input o email recebido pela query no DB -->
             <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
               <i class="bi bi-pencil"></i>

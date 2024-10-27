@@ -1,7 +1,7 @@
 <?php
 
 // Inicia a session
-session_start();
+include '../validator/sessao.php';
 
 include '../database/config.php';
 
@@ -10,6 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+
+    // Checa se o usuário já existe no DB
+    $sql = "SELECT * FROM `usuarios` WHERE email='$email' AND senha='$senha'";
+    $res = $conn->query($sql);
+    if ($res->num_rows > 0) {
+        $_SESSION['email'] = $email;
+        header("Location: /web-serv/src/views/perfil.php");
+    } else {
+        header("Location: /web-serv/src/views/registrar.php");
+    }
 
     // Insere o novo usuário no DB
     $sql = "INSERT INTO `usuarios` (email, senha) VALUES ('{$email}','{$senha}')";
@@ -28,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     } else {
         header("Location: /web-serv/src/index.php?error=true");
+        exit;
     }
 }
 
