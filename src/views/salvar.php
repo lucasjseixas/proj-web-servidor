@@ -1,7 +1,8 @@
 <?php
-
 // Verifica se o conteúdo da textarea name=`textArea` foi enviado
 // Essa condição irá evitar erros
+
+include '../validator/sessao.php';
 
 if (isset($_POST["textArea"]) && isset($_POST['docName'])) {
 
@@ -35,7 +36,9 @@ if (isset($_POST["textArea"]) && isset($_POST['docName'])) {
     // Fecha o arquivo 
     fclose($file);
 
-    // Retorna para a index 
+    // Retorna para a index
+    $_SESSION['alert'] = 'success';
+    $_SESSION['msg'] = 'Arquivo Salvo com sucesso!';
     header("Location: ./perfil.php");
 
     exit;

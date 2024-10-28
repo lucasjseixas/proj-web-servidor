@@ -1,7 +1,6 @@
 <?php
 // include '../database/config.php';
 
-
 // // Para nao haver duplicidade na entrada de dados para o DB em caso de 'refresh' da página
 // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -44,7 +43,7 @@
 //     echo "Cadastro efetuado com sucesso!";
 // }
 
-// // Inicia a session
+// Inicia a session
 // session_start();
 
 // Inclui conexao para o DB
@@ -84,8 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             header("Location: /web-serv/src/views/perfil.php");
         } else {
+            session_start();
             $_SESSION['alert'] = 'error';
-            $_SESSION['msg'] = 'Usuário não encontrado, por favor registre-se';
+            $_SESSION['msg'] = 'Usuário não encontrado, por favor registre-se!';
             header("Location: /web-serv/src/views/registrar.php");
         }
     } elseif (isset($_POST['registrar'])) {

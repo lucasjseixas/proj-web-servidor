@@ -16,7 +16,10 @@ if (isset($_GET['op']) && $_GET['op'] == 'delete') {
     $res = $conn->query($sql);
     // Caso bem sucedido, redireciona o usuario para index e destroi a session
     if ($res === true) {
-        session_destroy();
+        unset($_SESSION['email']);
+        $_SESSION['alert'] = 'warning';
+        $_SESSION['msg'] = 'Usuário excluído com sucesso!';
+        // session_destroy();
         header("Location: /web-serv/src/index.php");
     }
     // Fecha conexao com o DB e finaliza o script

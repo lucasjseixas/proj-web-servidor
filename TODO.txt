@@ -3,8 +3,8 @@
 
 ! Implementação pessoal: Corrigir a parte de autenticação com o DB -- FEITO ✅
 ! Adicionar o TinyMCE no AreaText -- FEITO ✅
-! Corrigir o padrão de cores do sistema -- Nao irei mexer por agora ⚠️
-! Adicionar JS nos envios, erros e sucessos -- Em fase de implementação e testes 🚧
+! Corrigir o padrão de cores do sistema -- Nao irei mexer por agora ⚠️❌ --> ME RECUSO A MEXER NISSO AGORA.
+! Adicionar JS nos envios, erros e sucessos -- Em fase de implementação e testes ✅
 
 /* TODO do dia 24/10/2024 */
 

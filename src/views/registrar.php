@@ -1,5 +1,13 @@
 <?php
 include '../validator/validation.php';
+include '../validator/sessao.php';
+
+if (isset($_SESSION['email'])) {
+    $_SESSION['alert'] = 'error';
+    $_SESSION['msg'] = 'Você não pode registrar estando logado, rapaz!';
+    header("Location: ./perfil.php");
+    exit;
+}
 
 ?>
 
@@ -24,7 +32,7 @@ include '../validator/validation.php';
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./views/perfil.php">Perfil
+                        <a class="nav-link active" href="/web-serv/src/views/perfil.php">Perfil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
@@ -110,7 +118,7 @@ include '../validator/validation.php';
                 Swal.fire({
                     icon: "<?php echo $_SESSION['alert']; ?>",
                     title: "<?php echo $_SESSION['msg']; ?>",
-                    timer: 3000,
+                    timer: 1500,
                     showConfirmButton: true
                 });
                 <?php unset($_SESSION['alert'], $_SESSION['msg']); ?>

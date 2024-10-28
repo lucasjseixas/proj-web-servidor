@@ -19,6 +19,8 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
             echo "Arquivo não encontrado para edição";
         }
     } else {
+        $_SESSION['alert'] = 'error';
+        $_SESSION['msg'] = 'Operação não permitida. Apenas arquivos .txt podem ser EDITADOS';
         echo "Operação não permitida. Apenas arquivos .txt podem ser EDITADOS";
     }
 }
