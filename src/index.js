@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       emailInput.classList.remove("is-valid");
       emailInput.classList.add("is-invalid");
-      emailFeedback.style.display = "block";  // Mostra feedback
+      emailFeedback.style.display = "block"; // Mostra feedback
     }
   });
 
@@ -35,26 +35,34 @@ document.addEventListener("DOMContentLoaded", function () {
     if (validatePassword(passwordInput.value)) {
       passwordInput.classList.remove("is-invalid");
       passwordInput.classList.add("is-valid");
-      senhaFeedback.style.display = "none";  // Esconde feedback
+      senhaFeedback.style.display = "none"; // Esconde feedback
     } else {
       passwordInput.classList.remove("is-valid");
       passwordInput.classList.add("is-invalid");
-      senhaFeedback.style.display = "block";  // Mostra feedback
+      senhaFeedback.style.display = "block"; // Mostra feedback
     }
   });
 
   // Validação no submit do formulário
-  document
-    .getElementById("emailForm")
-    .addEventListener("submit", function (event) {
-      if (!validateEmail(emailInput.value)) {
-        event.preventDefault();
-        alert("Por favor, insira um e-mail válido.");
-      }
-
-      if (!validatePassword(passwordInput.value)) {
-        event.preventDefault();
-        alert("A senha deve conter pelo menos 3 caracteres.");
-      }
-    });
+  // document
+  //   .getElementById("emailForm")
+  //   .addEventListener("submit", function (event) {
+  //     if (
+  //       !validateEmail(emailInput.value) ||
+  //       !validatePassword(passwordInput.value)
+  //     ) {
+  //       event.preventDefault();
+  //     } else {
+  //       Swal.fire({
+  //         title: "Sucesso!",
+  //         text: "Login validado com sucesso!",
+  //         icon: "success",
+  //         timer: 3000, // Tempo de exibição do alerta
+  //         showConfirmButton: false
+  //       });
+  //     }
+  //     // setTimeout(() => {
+  //     //   event.target.submit();
+  //     // }, 3000);
+  //   });
 });

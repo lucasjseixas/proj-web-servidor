@@ -89,7 +89,7 @@ session_start();
                         <label for="floatingInput">Senha</label>
                     </div>
                     <div id="senhaFeedback" class="invalid-feedback" style="display: none;">
-                        A senha deve conter pelo menos 3 números.
+                        A senha deve conter apenas 3 dígitos.
                     </div>
                 </div>
                 <!-- <input name="algo[]" value="A"> 
@@ -120,7 +120,7 @@ session_start();
 
     <!-- Necessidade de criar a lógica após a validação do usuário ou cadastro do usuário -->
 
-    <div id="cadastroSucesso" class="alert alert-dismissible alert-success text-center" style="display:none;">
+    <!-- <div id="cadastroSucesso" class="alert alert-dismissible alert-success text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Oba! Usuário CADASTRADO com sucesso!</strong> <a href="#" class="alert-link"></a>.
     </div>
@@ -133,7 +133,7 @@ session_start();
     <div id="erro" class="alert alert-dismissible alert-danger text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Epa! Usuário NÃO encontrado ou não cadastrado</strong> <a href="#" class="alert-link">
-    </div>
+    </div> -->
     <footer class="py-3 mt-auto">
         <div class="progress" style="height:5px">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
@@ -142,6 +142,21 @@ session_start();
         <p class="text-center text-muted mt-3">© 2024 - L.J.A.S.</p>
     </footer>
     <script src="index.js"></script>
+    <script src="/web-serv/src/js/sweetalert.js"></script>
+    <!-- Script de alerta de eventos: sucesso, erro ou avisos, todos dependentes das mensagens armazenadas em $_SESSION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            <?php if (isset($_SESSION['alert']) && isset($_SESSION['msg'])): ?>
+                Swal.fire({
+                    icon: "<?php echo $_SESSION['alert']; ?>",
+                    title: "<?php echo $_SESSION['msg']; ?>",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
+                <?php unset($_SESSION['alert'], $_SESSION['msg']); ?>
+            <?php endif; ?>
+        });
+    </script>
 </body>
 
 </html>

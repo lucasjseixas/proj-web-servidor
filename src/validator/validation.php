@@ -79,9 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!isset($_SESSION)) {
                 session_start();
                 $_SESSION['email'] = $email;
+                $_SESSION['alert'] = 'success';
+                $_SESSION['msg'] = 'Login realizado com sucesso!';
             }
             header("Location: /web-serv/src/views/perfil.php");
         } else {
+            $_SESSION['alert'] = 'error';
+            $_SESSION['msg'] = 'Usuário não encontrado, por favor registre-se';
             header("Location: /web-serv/src/views/registrar.php");
         }
     } elseif (isset($_POST['registrar'])) {
@@ -99,9 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($res === TRUE) {
                 session_start();
                 $_SESSION['email'] = $email;
+                $_SESSION['alert'] = 'success';
+                $_SESSION['msg'] = 'Cadastro realizado com sucesso!';
                 header("Location: /web-serv/src/views/perfil.php");
                 exit;
             } else {
+                $_SESSION['alert'] = 'error';
+                $_SESSION['msg'] = 'Erro ao cadastrar usuário!';
                 $error_message = "Erro ao registrar. Tente novamente.";
             }
         } else {

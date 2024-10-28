@@ -162,6 +162,20 @@ function gerarTabelaArquivos()
     <p class="text-center text-muted mt-3">© 2024 - L.J.A.S.</p>
   </footer>
   <script src="./perfil.js"></script>
+  <script src="/web-serv/src/js/sweetalert.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      <?php if (isset($_SESSION['alert']) && isset($_SESSION['msg'])): ?>
+        Swal.fire({
+          icon: "<?php echo $_SESSION['alert']; ?>",
+          title: "<?php echo $_SESSION['msg']; ?>",
+          timer: 1500,
+          showConfirmButton: true
+        });
+        <?php unset($_SESSION['alert'], $_SESSION['msg']); ?>
+      <?php endif; ?>
+    });
+  </script>
 </body>
 
 </html>

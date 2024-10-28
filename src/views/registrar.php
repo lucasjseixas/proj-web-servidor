@@ -88,7 +88,7 @@ include '../validator/validation.php';
 
     <!-- Necessidade de criar a lógica após a validação do usuário ou cadastro do usuário -->
 
-    <div class="alert alert-dismissible alert-success text-center" style="display:none;">
+    <!-- <div class="alert alert-dismissible alert-success text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Oba! Usuário CADASTRADO com sucesso!</strong> <a href="#" class="alert-link"></a>.
     </div>
@@ -101,7 +101,22 @@ include '../validator/validation.php';
     <div class="alert alert-dismissible alert-danger text-center" style="display:none;">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Epa! Usuário NÃO encontrado ou não cadastrado</strong> <a href="#" class="alert-link">
-    </div>
+    </div> -->
+    <script src="/web-serv/src/js/sweetalert.js"></script>
+    <!-- Script de alerta de eventos: sucesso, erro ou avisos, todos dependentes das mensagens armazenadas em $_SESSION -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            <?php if (isset($_SESSION['alert']) && isset($_SESSION['msg'])): ?>
+                Swal.fire({
+                    icon: "<?php echo $_SESSION['alert']; ?>",
+                    title: "<?php echo $_SESSION['msg']; ?>",
+                    timer: 3000,
+                    showConfirmButton: true
+                });
+                <?php unset($_SESSION['alert'], $_SESSION['msg']); ?>
+            <?php endif; ?>
+        });
+    </script>
     <footer class="py-3 mt-auto">
         <div class="progress" style="height:5px">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">

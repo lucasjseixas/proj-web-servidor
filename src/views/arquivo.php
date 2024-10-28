@@ -34,6 +34,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/boostrap-icons/font/bootstrap-icons.css">
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- Inclusão do CDN do TinyMCE -->
     <script src="https://cdn.tiny.cloud/1/r1itgi8jcrc4gtuwz2nk31vl95mr1jbyoyl1wuxv0xaj4zu6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -59,6 +60,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
                     title: 'Email'
                 },
             ],
+            entity_encoding: 'raw',
             ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
             exportpdf_converter_options: {
                 'format': 'Letter',
