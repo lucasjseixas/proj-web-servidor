@@ -110,10 +110,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 $_SESSION['alert'] = 'error';
                 $_SESSION['msg'] = 'Erro ao cadastrar usuário!';
-                $error_message = "Erro ao registrar. Tente novamente.";
             }
         } else {
-            $error_message = "E-mail já registrado. Por favor, faça login.";
+            $_SESSION['alert'] = 'error';
+            $_SESSION['msg'] = "E-mail já registrado. Por favor, faça login.";
         }
     }
 }

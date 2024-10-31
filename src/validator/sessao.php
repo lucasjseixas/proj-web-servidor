@@ -16,3 +16,10 @@ if (!isset($_SESSION['email'])) {
         <p class='text-center text-muted mt-3'>© 2024 - L.J.A.S.</p>
     </footer></body>");
 }
+
+if (isset($_SESSION['email']) && basename($_SERVER['PHP_SELF']) == 'registrar.php') {
+    $_SESSION['alert'] = 'error';
+    $_SESSION['msg'] = 'Você não pode registrar estando logado, rapaz!';
+    header("Location: /web-serv/src/index.php");
+    exit;
+}

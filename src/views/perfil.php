@@ -80,6 +80,7 @@ function gerarTabelaArquivos()
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/boostrap-icons/font/bootstrap-icons.css">
   <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="/web-serv/src/views/perfil.js"></script>
   <title>Projeto Web - Servidor - Pagina Perfil</title>
 </head>
 
@@ -116,16 +117,25 @@ function gerarTabelaArquivos()
           <div class="d-flex align-items-center">
             <!-- Printa no campo input o email recebido pela query no DB -->
             <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>
-            <!-- <a href='/web-serv/src/actions/edit_perfil.php?op=edit' class='btn btn-warning btn-sm me-2'>Editar Email<i class='bi bi-pencil'></i></a> -->
+            <a href="javascript:void(0);" class="btn btn-warning btn-sm me-2" onclick="habilitarEdicao()">Editar Email <i class="bi bi-pencil"></i></a>
             <a href='/web-serv/src/actions/delete_perfil.php?op=delete' class='btn btn-danger btn-sm me-2'>Deletar Conta<i class='bi bi-trash-fill'></i></a>
-            <!-- <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
-              <i class="bi bi-pencil"></i>
-            </button> -->
-            <!-- <button type="submit" class="btn btn-danger btn-sm me-2">EXCLUIR
-              <i class="bi bi-trash-fill"></i>
-            </button> -->
+            <div id="emailFeedback" class="invalid-feedback" style="display: none;">
+              Por favor, insira um e-mail válido.
+            </div>
           </div>
         </div>
+      </div>
+    </form>
+    <!-- <button type="submit" class="btn btn-warning btn-sm me-2">EDITAR
+              <i class="bi bi-pencil"></i>
+            </button> -->
+    <!-- <button type="submit" class="btn btn-danger btn-sm me-2">EXCLUIR
+              <i class="bi bi-trash-fill"></i>
+            </button> -->
+    <form action="/web-serv/src/actions/edit_perfil.php?op=edit" method="POST">
+      <div class="container">
+        <input type="hidden" name="email" id="hiddenEmail"> <!-- Campo oculto -->
+        <button type="submit" class="btn btn-success btn-sm me-2" id="okbutton" style="display: none;">Ok<i class="bi bi-check"></i></button>
       </div>
     </form>
     <h2 class="text-center text-primary mt-3">Serviços Oferecidos</h2>
