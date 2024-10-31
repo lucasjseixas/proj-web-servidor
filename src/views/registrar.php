@@ -3,13 +3,12 @@ include '../validator/validation.php';
 include '../validator/sessao.php';
 
 
-// if (isset($_SESSION['email'])) {
-//     $_SESSION['alert'] = 'error';
-//     $_SESSION['msg'] = 'Você não pode registrar estando logado, rapaz!';
-//     header("Location: ./perfil.php");
-//     exit;
-// }
-
+if (isset($_SESSION['email'])) {
+    $_SESSION['alert'] = 'error';
+    $_SESSION['msg'] = 'Você não pode registrar estando logado, rapaz!';
+    header("Location: ./perfil.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
