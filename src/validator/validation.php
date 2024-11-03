@@ -99,12 +99,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql = "INSERT INTO `usuarios` (email, senha) VALUES ('$email', '$senha_hashed')";
             $res = $conn->query($sql);
 
+
             // Sucesso de inserção
             if ($res === TRUE) {
+                // Inicia a session e seta os campos necessarios
                 session_start();
                 $_SESSION['email'] = $email;
                 $_SESSION['alert'] = 'success';
                 $_SESSION['msg'] = 'Cadastro realizado com sucesso!';
+                $_SESSION['id'] = $userId;
+
+                // Recupera o ID recém-gerado para o usuário
+                $userId = $conn->insert_id;
+
+                // Cria o diretório do usuário
+                // Define o diretório de uploads como sendo dentro de "src/uploads"
+                $userDir = __DIR__ . '/../uploads/' . $userId;
+                if (!is_dir($userDir)) {
+                    mkdir($userDir, 0755, true);
+                }
                 header("Location: /web-serv/src/views/perfil.php");
                 exit;
             } else {

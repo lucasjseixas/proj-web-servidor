@@ -21,8 +21,11 @@
 // // Se o cookie existir, preencha automaticamente o campo de email
 // $emailSalvo = isset($_COOKIE['user_email']) ? $_COOKIE['user_email'] : '';
 
+
 // Inicia sessão
 session_start();
+
+
 
 ?>
 

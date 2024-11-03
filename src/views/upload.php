@@ -3,7 +3,7 @@
 include '../validator/sessao.php';
 
 // Define o caminho do diretório de arquivos
-$target_dir = "E:/xampp/htdocs/web-serv/src/views/";
+$target_dir = "C:/xampp/htdocs/web-serv/src/views/";
 
 // Verifica se há arquivo para ser uploadeado
 if (!isset($_FILES['uploadFile']) || $_FILES['uploadFile']['error'] == UPLOAD_ERR_NO_FILE) {

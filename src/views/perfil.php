@@ -31,7 +31,7 @@ include '../validator/sessao.php';
 function gerarTabelaArquivos()
 {
   // Define o caminho do diretório de arquivos
-  $path = "E:/xampp/htdocs/web-serv/src/views/";
+  $path = "C:/xampp/htdocs/web-serv/src/views/";
   $diretorio = dir($path);
 
   // Inicia a criação da tabela

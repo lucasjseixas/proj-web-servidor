@@ -1,10 +1,37 @@
+// dia 06/11/24 --> Mostrar o Projeto 1
+// dia 07/11/24 --> Avaliação teórica -- Sala no L (a ser reservada)
 
-<--- TODO LIST --->
+<--- TODO LIST ---> * Atualizada *
 
-! Implementação pessoal: Corrigir a parte de autenticação com o DB -- FEITO ✅
-! Adicionar o TinyMCE no AreaText -- FEITO ✅
-! Corrigir o padrão de cores do sistema -- Nao irei mexer por agora ⚠️❌ --> ME RECUSO A MEXER NISSO AGORA.
-! Adicionar JS nos envios, erros e sucessos -- Em fase de implementação e testes ✅
+! Implementar edição de perfil ⚠️🚧
+! Implementar autorização de visualização de arquivos baseada em perfis ⚠️🚧
+
+** Autorizar criação de um diretorio com o nome do usuario **
+
+CREATE TABLE arquivos (
+    id INT AUTO_INCREMENT
+    user_id INT,
+    nome_arquivo VARCHAR(255),
+    caminho_arquivo VARCHAR(255),
+    data_upload TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES usuarios(id)
+)
+
+mkdir($userDIR, 0777, true) --> cria o diretorio e deixa o maior niel de permissao, seja para escrever, executar ou editar
+
+uniqid();
+chmod($filepath, 0644);
+chown(); // Muda a ownership do aquivo. Ex: chown("text.txt", "alguem");
+
+x Implementação pessoal: Corrigir a parte de autenticação com o DB -- FEITO ✅
+x Adicionar o TinyMCE no AreaText -- FEITO ✅
+x Corrigir o padrão de cores do sistema -- Nao irei mexer por agora ⚠️❌ --> NÃO SERÁ FEITO
+x Adicionar JS nos envios, erros e sucessos -- Em fase de implementação e testes ✅
+
+/* TODO do dia 31/10/2024 */
+
+// Fazer vinculação dos arquivos ao usuário, pu seja, bloquear qualquer usuário que não seja o 'dono' dos arquivos
+// Possibilitar outros tipos de edições ao usuário, como 'nome', 'senha' e 'foto de perfil'
 
 /* TODO do dia 24/10/2024 */
 
