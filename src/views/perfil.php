@@ -145,7 +145,7 @@ function gerarTabelaArquivosUsuario()
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <nav class="  navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="../../src/index.php">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,7 +154,7 @@ function gerarTabelaArquivosUsuario()
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="perfil.php">Perfil
+            <a class="nav-link active text-primary-emphasis" href="perfil.php">Perfil
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
@@ -169,7 +169,7 @@ function gerarTabelaArquivosUsuario()
     </div>
   </nav>
   <div class="container text-center">
-    <h1 class="text-primary-emphasis">PERFIL</h1>
+    <h1 class="text-primary-emphasis mt-5">PERFIL</h1>
     <form id="emailForm" action="perfil.php" method="POST">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
@@ -177,8 +177,8 @@ function gerarTabelaArquivosUsuario()
           <div class="d-flex align-items-center">
             <!-- Printa no campo input o email recebido pela query no DB -->
             <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>
-            <a href="javascript:void(0);" class="btn btn-warning btn-sm me-2" onclick="habilitarEdicao()">Editar Email <i class="bi bi-pencil"></i></a>
-            <a href='/web-serv/src/actions/delete_perfil.php?op=delete' class='btn btn-danger btn-sm me-2'>Deletar Conta<i class='bi bi-trash-fill'></i></a>
+            <a href="javascript:void(0);" class="btn btn-outline-warning btn-sm me-2" onclick="habilitarEdicao()">Editar Email <i class="bi bi-pencil"></i></a>
+            <a href='/web-serv/src/actions/delete_perfil.php?op=delete' class='btn btn-outline-danger btn-sm me-2'>Deletar Conta<i class='bi bi-trash-fill'></i></a>
             <div id="emailFeedback" class="invalid-feedback" style="display: none;">
               Por favor, insira um e-mail válido.
             </div>
@@ -215,7 +215,7 @@ function gerarTabelaArquivosUsuario()
         <!-- <label for="formFile" class="form-label mt-4">Upload de arquivos</label> -->
         <h3 class="text-center text-primary mt-3">Upload de Arquivos</h3>
         <input name="uploadFile" class="form-control" type="file">
-        <input type="submit" class="btn btn-info mt-3" value="Upload">
+        <input type="submit" class="btn btn-outline-info mt-3" value="Upload">
         <!-- <p class="text-center text-danger">Somente serão aceitos arquivos do tipo '.txt'</p> -->
       </div>
     </form>

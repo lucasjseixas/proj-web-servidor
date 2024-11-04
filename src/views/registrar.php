@@ -2,8 +2,8 @@
 include '../validator/validation.php';
 //include '../validator/sessao.php';
 
-
-if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) {
+session_start();
+if (isset($_SESSION['email']) && isset($_SESSION['id'])) {
     // Exibe mensagem de erro e botão para retornar ao login
     die("<head><link rel='stylesheet' href='../css/bootstrap.min.css'><link rel='stylesheet' href='../css/boostrap-icons/font/bootstrap-icons.css'></head>
     <body class='d-flex flex-column min-vh-100'><div class='container text-center'><h1>Você não pode registrar estando logado, rapaz!<br><a class='btn btn-primary mt-5' href='/web-serv/src/views/perfil.php'>Retornar<br><i class='bi bi-arrow-return-left'></i></a></h1></div><footer class='py-3 mt-auto'>
@@ -13,8 +13,9 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) {
         </div>
         <p class='text-center text-muted mt-3'>© 2024 - L.J.A.S.</p>
     </footer></body>");
-    exit;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) {
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/web-serv/src/views/perfil.php">Perfil
+                        <a class="nav-link active text-secondary-emphasis" href="/web-serv/src/views/perfil.php">Perfil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
@@ -55,7 +56,7 @@ if (!isset($_SESSION['email']) || !isset($_SESSION['id'])) {
         </div>
     </nav>
     <div class="container text-center flex-grow-1">
-        <h1 class="text-primary-emphasis">REGISTRAR</h1>
+        <h1 class="text-primary-emphasis mt-5">REGISTRAR</h1>
         <form id="emailForm" action="../validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">

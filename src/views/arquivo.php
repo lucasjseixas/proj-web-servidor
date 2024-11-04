@@ -99,7 +99,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="perfil.php">Perfil
+                        <a class="nav-link active text-primary-emphasis" href="perfil.php">Perfil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
@@ -120,7 +120,7 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
             <textarea class="form-control" name="textArea" id="textArea" rows="15" placeholder="Digite seu texto aqui" type="text" value="<?php echo htmlspecialchars($content); ?>"></textarea>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-lg mt-3 justify-content-center">Salvar </button>
+            <button type="submit" class="btn btn-outline-primary btn-lg mt-3 justify-content-center">Salvar </button>
         </div>
     </form>
     <footer class="py-3 mt-auto">

@@ -41,7 +41,7 @@ session_start();
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#home">Home</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@ session_start();
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./views/perfil.php">Perfil
+                        <a class="nav-link active text-secondary-emphasis" href="./views/perfil.php">Perfil
                             <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
@@ -67,7 +67,7 @@ session_start();
         </div>
     </nav>
     <div class="container text-center flex-grow-1">
-        <h1 class="text-primary-emphasis">LOGIN</h1>
+        <h1 class="text-primary-emphasis mt-5">LOGIN</h1>
         <form id="emailForm" action="./validator/validation.php" method="POST">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
