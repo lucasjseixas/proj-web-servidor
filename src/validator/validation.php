@@ -70,6 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Checa se o usuário existe no DB
         $sql = "SELECT * FROM `usuarios` WHERE email='$email' AND senha='$senha_hashed'";
         $res = $conn->query($sql);
+        $userData = $res->fetch_assoc();
+        $userId = $userData['id'];
 
         // Retorno de rows com o equivalente ao usuario/senha
         if ($res->num_rows > 0) {
@@ -77,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Inicia a session e seta o email da $_SESSION 
             if (!isset($_SESSION)) {
                 session_start();
+                $_SESSION['id'] = $userId;
                 $_SESSION['email'] = $email;
                 $_SESSION['alert'] = 'success';
                 $_SESSION['msg'] = 'Login realizado com sucesso!';
@@ -99,9 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $sql = "INSERT INTO `usuarios` (email, senha) VALUES ('$email', '$senha_hashed')";
             $res = $conn->query($sql);
 
-
             // Sucesso de inserção
             if ($res === TRUE) {
+                // Recupera o ID recém-gerado para o usuário
+                $userId = $conn->insert_id;
                 // Inicia a session e seta os campos necessarios
                 session_start();
                 $_SESSION['email'] = $email;
@@ -109,8 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['msg'] = 'Cadastro realizado com sucesso!';
                 $_SESSION['id'] = $userId;
 
-                // Recupera o ID recém-gerado para o usuário
-                $userId = $conn->insert_id;
 
                 // Cria o diretório do usuário
                 // Define o diretório de uploads como sendo dentro de "src/uploads"

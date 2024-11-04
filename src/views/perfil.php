@@ -27,47 +27,106 @@
 // Retoma a session iniciada em validation
 include '../validator/sessao.php';
 
+
 // Função para gerar a tabela
-function gerarTabelaArquivos()
+// function gerarTabelaArquivosAdmin()
+// {
+//   // Define o caminho do diretório de arquivos
+//   $path = "E:/xampp/htdocs/web-serv/src/views/";
+//   $diretorio = dir($path);
+
+//   // Inicia a criação da tabela
+//   $tabela = "<div class='row justify-content-center'>";  // Adiciona uma div para centralizar a tabela
+//   $tabela .= "<div class='col-12 col-md-10 col-lg-8'>";  // Define uma largura máxima para a tabela
+//   $tabela .= "<table class='table table-hover mx-auto mt-4' style='width:100%'>";  // mx-auto centraliza a tabela
+//   $tabela .= "<thead><tr><th>Arquivo</th><th>Data de Modificação</th><th>Tamanho</th><th>Ações</th></tr></thead>";
+//   $tabela .= "<tbody>";
+
+//   // Loop de leitura do diretório de arquivos e geração das linhas da tabela
+//   while (false !== ($arquivo = $diretorio->read())) {
+//     if ($arquivo != "." && $arquivo != "..") {
+//       $filePath = $path . $arquivo;  // Caminho completo para o arquivo
+//       $relativePath = "/web-serv/src/views/" . $arquivo;  // Caminho relativo para o link
+
+//       // Obtém a data de modificação e o tamanho do arquivo
+//       $fileModificationTime = date("d/m/Y H:i:s", filemtime($filePath));  // Data de modificação formatada
+//       $fileSize = filesize($filePath);  // Tamanho do arquivo em bytes
+
+//       // Adiciona a linha à tabela
+//       $tabela .= "<tr class='table-dark'>";
+//       $tabela .= "<td><a href='" . $relativePath . "'>" . $arquivo . "</a></td>";
+//       $tabela .= "<td>" . $fileModificationTime . "</td>";
+//       $tabela .= "<td>" . number_format($fileSize / 1024, 2) . " KB</td>";  // Tamanho em KB com 2 casas decimais
+//       $tabela .= "<td><a href='editar.php?op=edit&filename=" . $arquivo . "' class='btn btn-warning btn-sm me-2'>EDITAR<i class='bi bi-pencil'></i></a><a href='remover.php?op=delete&filename=" . $arquivo . "' class='btn btn-danger btn-sm'>EXCLUIR<i class='bi bi-trash-fill'></td>";
+//       $tabela .= "</tr>";
+//     }
+//   }
+
+//   $tabela .= "</tbody></table></div></div>";
+
+//   // Fecha o diretório
+//   $diretorio->close();
+
+//   // Retorna a tabela gerada
+//   return $tabela;
+// }
+
+// Função para gerar a tabela
+function gerarTabelaArquivosUsuario()
 {
+
+  $userId = $_SESSION['id'];
   // Define o caminho do diretório de arquivos
-  $path = "C:/xampp/htdocs/web-serv/src/views/";
-  $diretorio = dir($path);
+  $path = "E:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
 
-  // Inicia a criação da tabela
-  $tabela = "<div class='row justify-content-center'>";  // Adiciona uma div para centralizar a tabela
-  $tabela .= "<div class='col-12 col-md-10 col-lg-8'>";  // Define uma largura máxima para a tabela
-  $tabela .= "<table class='table table-hover mx-auto mt-4' style='width:100%'>";  // mx-auto centraliza a tabela
-  $tabela .= "<thead><tr><th>Arquivo</th><th>Data de Modificação</th><th>Tamanho</th><th>Ações</th></tr></thead>";
-  $tabela .= "<tbody>";
+  if (is_dir($path)) {
+    $diretorio = dir($path);
 
-  // Loop de leitura do diretório de arquivos e geração das linhas da tabela
-  while (false !== ($arquivo = $diretorio->read())) {
-    if ($arquivo != "." && $arquivo != "..") {
-      $filePath = $path . $arquivo;  // Caminho completo para o arquivo
-      $relativePath = "/web-serv/src/views/" . $arquivo;  // Caminho relativo para o link
+    // Verifica se o diretorio contem arquivos
+    $temArquivos = false;
 
-      // Obtém a data de modificação e o tamanho do arquivo
-      $fileModificationTime = date("d/m/Y H:i:s", filemtime($filePath));  // Data de modificação formatada
-      $fileSize = filesize($filePath);  // Tamanho do arquivo em bytes
+    // Inicia a criação da tabela
+    $tabela = "<div class='row justify-content-center'>";  // Adiciona uma div para centralizar a tabela
+    $tabela .= "<div class='col-12 col-md-10 col-lg-8'>";  // Define uma largura máxima para a tabela
+    $tabela .= "<table class='table table-hover mx-auto mt-4' style='width:100%'>";  // mx-auto centraliza a tabela
+    $tabela .= "<thead><tr><th>Arquivo</th><th>Data de Modificação</th><th>Tamanho</th><th>Ações</th></tr></thead>";
+    $tabela .= "<tbody>";
 
-      // Adiciona a linha à tabela
-      $tabela .= "<tr class='table-dark'>";
-      $tabela .= "<td><a href='" . $relativePath . "'>" . $arquivo . "</a></td>";
-      $tabela .= "<td>" . $fileModificationTime . "</td>";
-      $tabela .= "<td>" . number_format($fileSize / 1024, 2) . " KB</td>";  // Tamanho em KB com 2 casas decimais
-      $tabela .= "<td><a href='editar.php?op=edit&filename=" . $arquivo . "' class='btn btn-warning btn-sm me-2'>EDITAR<i class='bi bi-pencil'></i></a><a href='remover.php?op=delete&filename=" . $arquivo . "' class='btn btn-danger btn-sm'>EXCLUIR<i class='bi bi-trash-fill'></td>";
-      $tabela .= "</tr>";
+    // Loop de leitura do diretório de arquivos e geração das linhas da tabela
+    while (false !== ($arquivo = $diretorio->read())) {
+      if ($arquivo != "." && $arquivo != "..") {
+        $temArquivos = true;
+        $filePath = $path . $arquivo;  // Caminho completo para o arquivo
+        $relativePath = "/web-serv/src/uploads/" . $userId . "/" . $arquivo;  // Caminho relativo para o link
+
+        // Obtém a data de modificação e o tamanho do arquivo
+        $fileModificationTime = date("d/m/Y H:i:s", filemtime($filePath));  // Data de modificação formatada
+        $fileSize = filesize($filePath);  // Tamanho do arquivo em bytes
+
+        // Adiciona a linha à tabela
+        $tabela .= "<tr class='table-dark'>";
+        $tabela .= "<td><a href='" . $relativePath . "'>" . htmlspecialchars($arquivo) . "</a></td>";
+        $tabela .= "<td>" . $fileModificationTime . "</td>";
+        $tabela .= "<td>" . number_format($fileSize / 1024, 2) . " KB</td>";  // Tamanho em KB com 2 casas decimais
+        $tabela .= "<td><a href='editar.php?op=edit&filename=" . $arquivo . "' class='btn btn-warning btn-sm me-2'>EDITAR<i class='bi bi-pencil'></i></a><a href='remover.php?op=delete&filename=" . $arquivo . "' class='btn btn-danger btn-sm'>EXCLUIR<i class='bi bi-trash-fill'></td>";
+        $tabela .= "</tr>";
+      }
     }
+
+    $tabela .= "</tbody></table></div></div>";
+
+    // Fecha o diretório
+    $diretorio->close();
+
+    if ($temArquivos) {
+      // Retorna a tabela gerada
+      return $tabela;
+    } else {
+      echo "<p class='text text-danger'>Nenhum arquivo encontrado</p>";
+    }
+  } else {
+    echo "<p class='text text-danger'>O diretório do usuário não existe</p>";
   }
-
-  $tabela .= "</tbody></table></div></div>";
-
-  // Fecha o diretório
-  $diretorio->close();
-
-  // Retorna a tabela gerada
-  return $tabela;
 }
 ?>
 
@@ -161,7 +220,7 @@ function gerarTabelaArquivos()
     </form>
 
     <!-- Chama a função PHP para gerar a tabela e exibi-la -->
-    <?php echo gerarTabelaArquivos(); ?>
+    <?php echo gerarTabelaArquivosUsuario(); ?>
   </div>
 
   <footer class="py-3 mt-auto">
