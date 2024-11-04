@@ -48,6 +48,7 @@
 
 // Inclui conexao para o DB
 include '../database/config.php';
+// include '../validator/sessao.php';
 
 // Checa o method de envio do form
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

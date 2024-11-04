@@ -24,9 +24,6 @@
 //   $userEmail = $_SESSION['email'];
 // }
 
-// Retoma a session iniciada em validation
-include '../validator/sessao.php';
-
 
 // Função para gerar a tabela
 // function gerarTabelaArquivosAdmin()
@@ -71,13 +68,17 @@ include '../validator/sessao.php';
 //   return $tabela;
 // }
 
+
+// Retoma a session iniciada em validation
+include '../validator/sessao.php';
+
 // Função para gerar a tabela
 function gerarTabelaArquivosUsuario()
 {
 
   $userId = $_SESSION['id'];
   // Define o caminho do diretório de arquivos
-  $path = "c:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
+  $path = "E:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
 
   if (is_dir($path)) {
     $diretorio = dir($path);

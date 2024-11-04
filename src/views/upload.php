@@ -4,7 +4,7 @@ include '../validator/sessao.php';
 
 $userId = $_SESSION['id'];
 // Define o caminho do diretório de arquivos
-$target_dir = "C:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
+$target_dir = "E:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
 
 // Verifica se há arquivo para ser uploadeado
 if (!isset($_FILES['uploadFile']) || $_FILES['uploadFile']['error'] == UPLOAD_ERR_NO_FILE) {

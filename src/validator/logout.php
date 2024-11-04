@@ -12,6 +12,7 @@ $_SESSION['msg'] = "Logout realizado com sucesso!";
 // Abordagem sem session_destroy();, o que seria o certo, mas não consegui implementar junto com um aviso em JS
 // Unseta as variaveis da $_SESSION
 unset($_SESSION['email']);
+unset($_SESSION['id']);
 
 // Relocaliza o usuário para a index.php
 header("Location: /web-serv/src/index.php");
