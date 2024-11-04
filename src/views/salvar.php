@@ -17,10 +17,19 @@ if (isset($_POST["textArea"]) && isset($_POST['docName'])) {
     // para o modo de escrita, além de colocar
     // o ponteiro no final do arquivo.
 
+    // Define o caminho completo do diretório do usuário
+    $userId = $_SESSION['id'];
+    $userDir = __DIR__ . "/../uploads/$userId/";
+
+    // Verifica se a pasta do usuário existe, caso contrário, cria
+    if (!is_dir($userDir)) {
+        mkdir($userDir, 0755, true);
+    }
+
     if (pathinfo($docName, PATHINFO_EXTENSION) !== 'txt') {
-        $filename = $docName . ".txt";
+        $filename = $userDir . $docName . ".txt";
     } else {
-        $filename = $docName; // Se já tem .txt, somente usa o nome do arquivo
+        $filename = $userDir . $docName; // Se já tem .txt, somente usa o nome do arquivo
     }
 
     $file = fopen($filename, "w");

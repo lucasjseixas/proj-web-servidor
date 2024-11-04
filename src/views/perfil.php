@@ -77,7 +77,7 @@ function gerarTabelaArquivosUsuario()
 
   $userId = $_SESSION['id'];
   // Define o caminho do diretório de arquivos
-  $path = "E:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
+  $path = "c:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
 
   if (is_dir($path)) {
     $diretorio = dir($path);
