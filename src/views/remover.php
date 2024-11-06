@@ -23,6 +23,16 @@ if (isset($_GET['op']) && $_GET['op'] == 'delete' && isset($_GET['filename'])) {
             header("Location: ./perfil.php");
             // echo "Arquivo não encontrado para remoção";
         }
+    } elseif ((pathinfo($filename, PATHINFO_EXTENSION) == 'png') || (pathinfo($filename, PATHINFO_EXTENSION) == 'jpg') || (pathinfo($filename, PATHINFO_EXTENSION) == 'jpeg')) {
+        $filepath = $userDir . $filename;
+        if (file_exists($filepath)) {
+            removeFile($filepath);
+        } else {
+            $_SESSION['alert'] = 'error';
+            $_SESSION['msg'] = 'Falha ao remover arquivo';
+            header("Location: ./perfil.php");
+            // echo "Arquivo não encontrado para remoção";
+        }
     } else {
         $_SESSION['alert'] = 'error';
         $_SESSION['msg'] = 'Operação não permitida. Apenas arquivos .txt podem ser EXCLUÍDOS';

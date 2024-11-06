@@ -80,6 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Inicia a session e seta o email da $_SESSION 
             if (!isset($_SESSION)) {
                 session_start();
+                // Exemplo de código para carregar a URL do banco ao logar
+                $_SESSION['url_pfp'] = $url_from_database ?? '/web-serv/src/img/default_pfp.png';
                 $_SESSION['id'] = $userId;
                 $_SESSION['email'] = $email;
                 $_SESSION['alert'] = 'success';
