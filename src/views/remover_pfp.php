@@ -12,7 +12,7 @@ $sql = "UPDATE `usuarios` SET url = '$defaultUrl' WHERE id = '$userId'";
 mysqli_query($conn, $sql);
 
 // Atualiza a sessão
-$_SESSION['url_pfp'] = $defaultUrl;
+$_SESSION['url'] = $defaultUrl;
 
 $_SESSION['alert'] = 'info';
 $_SESSION['msg'] = 'Foto de perfil removida!';

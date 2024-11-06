@@ -78,7 +78,7 @@ function gerarTabelaArquivosUsuario()
 
   $userId = $_SESSION['id'];
   // Define o caminho do diretório de arquivos
-  $path = "E:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
+  $path = "C:/xampp/htdocs/web-serv/src/uploads/" . $userId . "/";
 
   if (is_dir($path)) {
     $diretorio = dir($path);
@@ -199,7 +199,7 @@ function gerarTabelaArquivosUsuario()
     <form id="emailForm" action="perfil.php" method="POST">
       <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-4 mb-3">
-          <label for="email" class="form-label text-start w-100">Endereço de E-mail</label>
+          <label for="email" class="form-label text-start w-100 mt-3">Endereço de E-mail</label>
           <div class="d-flex align-items-center">
             <!-- Printa no campo input o email recebido pela query no DB -->
             <input type="email" name="email" class="form-control me-2" id="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" readonly>

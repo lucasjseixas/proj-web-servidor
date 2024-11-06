@@ -6,7 +6,7 @@ $userId = $_SESSION['id'];
 
 // Se um arquivo foi carregado
 if (isset($_FILES['pfp_upload']) && $_FILES['pfp_upload']['error'] == 0) {
-    $uploadDir = "E:/xampp/htdocs/web-serv/src/uploads/$userId/";
+    $uploadDir = "C:/xampp/htdocs/web-serv/src/uploads/$userId/";
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
     }

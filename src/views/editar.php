@@ -7,15 +7,21 @@ include './salvar.php';
 $content = ""; // Inicializa como vazio
 $isEditing = false; // Flag para verificar se estamos editando um arquivo
 
+// Obtém o ID do usuário (substitua com o método adequado para obter o ID)
+$userId = $_SESSION['id']; // Exemplo: user_id armazenado na sessão
+$userDir = "../uploads/$userId/"; // Caminho do diretório do usuário
+
+
 // Verifica se o botão de editar foi pressionado
 if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
     $filename = basename($_GET['filename']); // basename evita injeção de caminho
+    $filepath = $userDir . $filename; // Caminho completo do arquivo
 
     // Verifica se o arquivo possui extensão .txt
     if (pathinfo($filename, PATHINFO_EXTENSION) == 'txt') {
         // Verifica se o arquivo existe
-        if (file_exists($filename)) {
-            $content = file_get_contents($filename); // Carrega o conteúdo do arquivo
+        if (file_exists($filepath)) {
+            $content = file_get_contents($filepath); // Carrega o conteúdo do arquivo
             $isEditing = true; // Define a flag como true, indicando que estamos editando
         } else {
             echo "Arquivo não encontrado para edição";
@@ -117,7 +123,9 @@ if (isset($_GET['op']) && $_GET['op'] == 'edit' && isset($_GET['filename'])) {
         </div>
         <label for="textArea" class="form-label mt-4">Documento</label>
         <textarea class="form-control" name="textArea" id="textArea" rows="15" placeholder="Digite seu texto aqui"><?php echo htmlspecialchars($content); ?></textarea>
-        <button type="submit" class="btn btn-primary btn-lg mt-3">Salvar</button>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-outline-primary btn-lg mt-3">Salvar</button>
+        </div>
     </form>
     <footer class="py-3 mt-auto">
         <div class="progress" style="height:5px">
