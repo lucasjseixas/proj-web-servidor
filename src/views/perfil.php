@@ -175,28 +175,20 @@ function gerarTabelaArquivosUsuario()
         <img src="<?php echo $_SESSION['url_pfp'] ?? '/web-serv/src/img/default_pfp.png'; ?>" alt="Foto de Perfil" class="rounded-circle" width="150" height="150">
       </div>
       <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-        <!-- Botão principal para ações gerais -->
         <button type="button" class="btn btn-info">Imagem de Perfil</button>
-
-        <!-- Botão dropdown para opções de imagem -->
         <div class="btn-group" role="group">
           <button id="btnGroupDrop3" type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-            <!-- Opção para upload de imagem -->
             <form action="salvar_pfp.php" method="POST" enctype="multipart/form-data" class="dropdown-item px-3">
               <label class="form-label">Carregar Imagem</label>
               <input type="file" name="pfp_upload" class="form-control mb-2">
               <button type="submit" class="btn btn-outline-info w-100">Upload</button>
             </form>
-
-            <!-- Opção para URL da imagem -->
             <form action="salvar_pfp.php" method="POST" class="dropdown-item px-3">
               <label class="form-label">URL da Imagem</label>
               <input type="text" name="pfp_url" class="form-control mb-2" placeholder="https://example.com/image.jpg">
               <button type="submit" class="btn btn-outline-info w-100">Usar URL</button>
             </form>
-
-            <!-- Opção para remover a imagem de perfil -->
             <form action="remover_pfp.php" method="POST" class="dropdown-item px-3">
               <button type="submit" class="btn btn-outline-danger w-100">Remover</button>
             </form>
