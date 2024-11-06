@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../database/config.php';  // Conexão com o banco de dados
+include '../database/config.php';  // Conexão com o DB
 
 $userId = $_SESSION['id'];
 
@@ -22,7 +22,7 @@ if (isset($_FILES['pfp_upload']) && $_FILES['pfp_upload']['error'] == 0) {
     exit;
 }
 
-// Atualiza o banco de dados
+// Atualiza o DB
 $sql = "UPDATE `usuarios` SET url = '$url' WHERE id = '$userId'";
 mysqli_query($conn, $sql);
 

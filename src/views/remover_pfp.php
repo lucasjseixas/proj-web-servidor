@@ -7,7 +7,7 @@ $userId = $_SESSION['id'];
 // Define a URL para a imagem padrão
 $defaultUrl = "/web-serv/src/img/default_pfp.png";
 
-// Atualiza no banco de dados
+// Atualiza no DB
 $sql = "UPDATE `usuarios` SET url = '$defaultUrl' WHERE id = '$userId'";
 mysqli_query($conn, $sql);
 
